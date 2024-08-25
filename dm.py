@@ -26,10 +26,10 @@ time.sleep(2)
 
 # Enter username and password
 username = driver.find_element(By.ID, "username")
-username.send_keys("oksomeone009@gmail.com")
+username.send_keys("your_gmail")
 
 password = driver.find_element(By.ID, "password")
-password.send_keys("OksomeoneBye")
+password.send_keys("your-password")
 
 # Click on the login button
 login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
