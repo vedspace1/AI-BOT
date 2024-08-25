@@ -16,7 +16,7 @@ def generate_comment(post_content):
         ]
     )
     return response.choices[0].message["content"].strip()
-# Step 2: Initialize the WebDriver
+#Initialize the WebDriver
 chrome_options = Options()
 
 # Set up the service
@@ -31,39 +31,39 @@ print("Browser opened successfully")
 
 
 
-# Step 3: Log in to LinkedIn
+# Log in to LinkedIn
 driver.get("https://www.linkedin.com/login")
 time.sleep(2)
 
 username = driver.find_element(By.ID, "username")
-username.send_keys("oksomeone009@gmail.com")
+username.send_keys("your-email")
 
 password = driver.find_element(By.ID, "password")
-password.send_keys("OksomeoneBye")
+password.send_keys("your-password")
 password.send_keys(Keys.RETURN)
 
 time.sleep(5)
 
-# Step 4: Navigate to LinkedIn feed and find a post
+#  Navigate to LinkedIn feed and find a post
 driver.get("https://www.linkedin.com/feed/")
 time.sleep(5)
 
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 time.sleep(3)
 
-# Step 5: Extract post content (adjust selector as needed)
+#  Extract post content (adjust selector as needed)
 post_content_element = driver.find_element(By.CSS_SELECTOR, "span.break-words")
 post_content = post_content_element.text
 
-# Step 1: Initialize OpenAI API key
+# Initialize OpenAI API key
 openai.api_key = "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"
 
 
 
-# Step 6: Generate a comment using OpenAI
+#  Generate a comment using OpenAI
 comment_text = generate_comment(post_content)
 
-# Step 7: Post the AI-generated comment
+#  Post the AI-generated comment
 post_comment_box = driver.find_element(By.CSS_SELECTOR, "div[role='textbox']")
 post_comment_box.click()
 post_comment_box.send_keys(comment_text)
